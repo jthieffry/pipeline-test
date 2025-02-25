@@ -6,7 +6,9 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "aws-cdk-lib==2.179.0",
+    "cdk-nag>=2.35.28",
     "constructs>=10.0.0,<11.0.0",
+    "pyyaml>=6.0.2",
 ]
 
 [dependency-groups]
