@@ -1,6 +1,5 @@
 from aws_cdk import Stack
 from aws_cdk.aws_lambda import Code, Function, LayerVersion, Runtime
-from aws_cdk.aws_s3 import Bucket
 from constructs import Construct
 
 
@@ -14,6 +13,8 @@ class MyLambdaStack(Stack):
             layer_version_arn="arn:aws:lambda:us-east-1:017000801446:layer:AWSLambdaPowertoolsPythonV3-python312-x86_64:8",
         )
 
+        self.function_name: str | None = None
+
         Function(
             self,
             "MyFunction",
@@ -22,5 +23,3 @@ class MyLambdaStack(Stack):
             handler="lambda_function.handler",
             layers=[powertools_layer],
         )
-
-        Bucket(self, "MyBucket")
